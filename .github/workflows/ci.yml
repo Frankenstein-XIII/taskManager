@@ -1,0 +1,16 @@
+name: CI Pipeline 
+on: [push, pull_request]
+
+jobs:
+    server-tests:
+        runs-on: ununtu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - name: install Node
+              uses: actions/setup-node@v3
+              with:
+                node-version: 18
+            - name: install Server Deps
+              run: cd taskManager-server && npm install
+            - name: Run Server Tests 
+              run: cd taskManager-server && npm test 

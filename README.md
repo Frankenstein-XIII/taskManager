@@ -14,3 +14,5 @@
     - jest config:
         - `module.exports = { preset 'ts-jest', testEnvironment: 'node', };`
     
+# 🤖 Step 4: GitHub Actions (The Pipeline)
+- inside root folder create `.github/workflows/ci.yml`
