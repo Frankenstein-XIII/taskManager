@@ -1,5 +1,5 @@
 node_modules/
 dist/
 .env
-client/node_modules
-server/node_modules
+taskManager-client/node_modules
+taskManager-server/node_modules

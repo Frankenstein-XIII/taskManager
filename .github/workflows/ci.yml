@@ -14,3 +14,13 @@ jobs:
               run: cd taskManager-server && npm install
             - name: Run Server Tests 
               run: cd taskManager-server && npm test 
+    client-tests:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v4
+          - name: Install and Test lient 
+            run: | 
+              cd taskManager-client
+              npm install
+              npm test
+          
