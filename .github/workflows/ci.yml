@@ -9,7 +9,7 @@ jobs:
             - name: install Node
               uses: actions/setup-node@v3
               with:
-                node-version: 18
+                node-version: 24
             - name: install Server Deps
               run: cd taskManager-server && npm install
             - name: Run Server Tests 
