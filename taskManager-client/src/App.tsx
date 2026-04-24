@@ -1,4 +1,4 @@
-export function App() {
+export default function App() {
   return (
     <div className="App">
       <h1>Vite + React</h1>
