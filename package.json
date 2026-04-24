@@ -1,0 +1,13 @@
+{
+  "name": "taskmanager",
+  "version": "1.0.0",
+  "description": "- bash:      - `mkdir taskManager && cd taskManager`     - `mkdir taskManager-client taskManager-server`     - `npm init`",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
