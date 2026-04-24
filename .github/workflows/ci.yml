@@ -4,6 +4,12 @@ on: [push, pull_request]
 jobs:
     server-tests:
         runs-on: ubuntu-latest
+        services:
+          mongodb:
+            image: mongo:6.0
+            ports:
+              - 27017:27017
+
         steps:
             - uses: actions/checkout@v4
             - name: install Node
@@ -18,7 +24,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
           - uses: actions/checkout@v4
-          - name: Install and Test lient 
+          - name: Install and Test client 
             run: | 
               cd taskManager-client
               npm install
