@@ -16,3 +16,12 @@ export const createTask = async (req: Request, res: Response) =>{
         res.status(500).json({message: "Error creating task!", error});
     }
 };
+
+export const getTask = async (req: Request, res:Response)=>{
+    try{
+        const tasks = await Task.find().sort({createdAt: -1});
+        res.status(200).json(tasks);
+    }catch(error){
+        res.status(500).json({message: "Error fetching tasks", error});
+    }
+};
