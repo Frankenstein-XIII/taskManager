@@ -59,4 +59,34 @@ describe("Task API Integration Tests", ()=>{
         expect(response.body.length).toBeGreaterThan(0);
         expect(response.body[0].title).toBe("Tasks to be fetched")
     });
+
+    it("should update a task", async () =>{
+        const res = await request(app)
+        .post('/api/tasks')
+        .send({title:"Update task test"});
+        const taskId = res.body._id;
+
+        const response = await request(app)
+          .put(`/api/tasks/${taskId}`)
+          .send({isCompleted: true });
+        console.log(response.body.isCompleted)
+        expect(response.status).toBe(200);
+        expect(response.body.isCompleted).toBe(true);
+    });
+
+    it("Should delete a task ", async () =>{
+        const res = await request(app)
+        .post('/api/tasks')
+        .send({title:"Testing delete "});
+        const taskId = res.body._id;
+
+        const response = await request(app).delete(`/api/tasks/${taskId}`);
+
+        expect(response.status).toBe(200);
+        expect(response.body.message).toBe("Task deleted successfully")
+
+        const check = await request(app).get('/api/tasks')
+        expect(check.body.length).toBe(0);
+
+    });
 });
