@@ -1,9 +1,13 @@
 import express, {Request, Response} from 'express';
 import mongoose from 'mongoose';
 import taskRoutes from '../src/routes/taskRoutes';
+import cors from 'cors';
+
 const app = express();
 const PORT = 5001;
 
+
+app.use(cors())
 app.use(express.json());
 
 app.use('/api/tasks', taskRoutes);
